@@ -1,4 +1,4 @@
-#include <bits/stdc++.h>
+#include <iostream>
 using namespace std;
 int demcapbangnhau(int a[],int n){
     int dem=0;
