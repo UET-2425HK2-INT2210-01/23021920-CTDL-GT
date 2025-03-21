@@ -1,1 +1,3 @@
-
+Hai thuộc tính mong muốn của hàm băm là:  
+- Tính đồng nhất (Uniformity): Đầu ra của hàm băm nên được phân phối đều trên toàn bộ không gian giá trị để tránh xung đột (collision) và đảm bảo hiệu suất cao.  
+- Tính chống va chạm (Collision Resistance): Rất khó hoặc gần như không thể tìm được hai đầu vào khác nhau có cùng giá trị băm, giúp đảm bảo tính bảo mật và toàn vẹn dữ liệu.
