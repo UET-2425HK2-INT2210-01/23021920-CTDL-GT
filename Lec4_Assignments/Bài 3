@@ -1,0 +1,48 @@
+Bảng băm 17 : h(i) = (i+3) mod 17
+Khóa              	Vị trí
+ 1	                (1 + 3) mod 17 = 4
+ 3	                (3 + 3) mod 17 = 6
+ 18	                (18 + 3) mod 17 = 4 (va chạm)
+ 8	                (8 + 3) mod 17 = 11
+ 23	                (23 + 3) mod 17 = 9
+ 35	                (35 + 3) mod 17 = 5
+ 11	                (11 + 3) mod 17 = 14
+ 36	                (36 + 3) mod 17 = 5 (va chạm)
+ 20	                (20 + 3) mod 17 = 6 (va chạm)
+ 16	                (16 + 3) mod 17 = 2
+a,Bảng băm ( Xử lý va chạm bằng xích - Chaining):
+      0: NULL
+      1: NULL
+      2: 16 -> NULL
+      3: NULL
+      4: 1 -> 18 -> NULL
+      5: 35 -> 36 -> NULL
+      6: 3 -> 20 -> NULL
+      7: NULL
+      8: NULL
+      9: 23 -> NULL
+      10: NULL
+      11: 8 -> NULL
+      12: NULL
+      13: NULL
+      14: 11 -> NULL
+      15: NULL
+      16: NULL
+b, Bảng băm ( xử lý va chạm bằng thăm dò tuyến tính - Linear Probing):
+     0: NULL
+1: NULL
+2: 16
+3: NULL
+4: 1
+5: 18
+6: 35
+7: 36
+8: 20
+9: 23
+10: NULL
+11: 8
+12: 35
+13: NULL
+14: 11
+15: NULL
+16: NULL
