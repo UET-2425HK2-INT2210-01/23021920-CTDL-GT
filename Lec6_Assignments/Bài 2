@@ -1,0 +1,12 @@
+* Vẽ cây heap theo max heap
+Vẽ cây heap
+        
+       / \
+      1   10
+         /    \
+        6      13
+       / \       \
+      3   8      20
+         /
+        7
+* Vẽ cây heap theo min heap
