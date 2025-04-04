@@ -1,0 +1,59 @@
+Mã giả cho hàm insert, delete
+- Hàm insert:
+//Hàm insert
+FUNCTION insert(Heap heap, int value): 
+    // Bước 1: Thêm giá trị mới vào cuối Heap (vị trí heap.size)
+    heap.array[heap.size] = value
+
+    // Bước 2: Tăng kích thước Heap lên 1 đơn vị
+    heap.size = heap.size + 1
+    
+    // Bước 3: Điều chỉnh Heap để đảm bảo tính chất Heap (đưa phần tử mới lên nếu cần)
+    heapifyUp(heap, heap.size - 1)
+//Hàm heapifyUp
+FUNCTION heapifyUp(Heap heap, int index):
+    WHILE index > 0 AND heap.array[index] < heap.array[parent(index)]:
+        // Nếu phần tử mới chèn nhỏ hơn nút cha, hoán đổi hai giá trị
+        SWAP(heap.array[index], heap.array[parent(index)])
+
+        // Di chuyển index lên trên (lấy vị trí của nút cha)
+        index = parent(index)
+- Hàm Delete:
+//Hàm delete
+FUNCTION delete(Heap heap, int value):
+    // Bước 1: Tìm vị trí phần tử cần xóa trong Heap
+    index = findIndex(heap, value)
+    
+    // Nếu không tìm thấy phần tử, kết thúc
+    IF index == -1:
+        RETURN
+
+    // Bước 2: Thay thế phần tử bị xóa bằng phần tử cuối cùng của Heap
+    heap.array[index] = heap.array[heap.size - 1]
+    
+    // Bước 3: Giảm kích thước Heap đi 1 đơn vị
+    heap.size = heap.size - 1
+
+    // Bước 4: Điều chỉnh Heap để đảm bảo tính chất Heap
+    heapifyDown(heap, index)
+//Hàm heapifyDown
+FUNCTION heapifyDown(Heap heap, int index):
+    WHILE index HAS LEFT CHILD:
+        // Bước 1: Giả sử con trái là nhỏ hơn
+        smallerChildIndex = leftChild(index)
+
+        // Bước 2: Nếu tồn tại con phải và con phải nhỏ hơn con trái, chọn con phải
+        IF rightChild(index) EXISTS AND heap.array[rightChild(index)] < heap.array[smallerChildIndex]:
+            smallerChildIndex = rightChild(index)
+        
+        // Bước 3: Nếu phần tử cha đã nhỏ hơn con nhỏ nhất, dừng lại
+        IF heap.array[index] <= heap.array[smallerChildIndex]:
+            BREAK
+
+        // Bước 4: Hoán đổi phần tử cha với con nhỏ hơn
+        SWAP(heap.array[index], heap.array[smallerChildIndex])
+
+        // Bước 5: Cập nhật index để tiếp tục kiểm tra ở cấp con
+        index = smallerChildIndex
+
+
