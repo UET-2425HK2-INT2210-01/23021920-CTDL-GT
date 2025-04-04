@@ -1,0 +1,53 @@
+Mã giả cho hàm insert và delete:
+- Hàm insert
+FUNCTION insert(Node root, int value): 
+    // Nếu cây rỗng, tạo một node mới và trả về node đó
+    IF root IS NULL:
+        RETURN new Node(value)
+    
+    // Nếu giá trị nhỏ hơn giá trị node hiện tại, chèn vào cây con bên trái
+    IF value < root.data:
+        root.left = insert(root.left, value)
+    
+    // Nếu giá trị lớn hơn giá trị node hiện tại, chèn vào cây con bên phải
+    ELSE IF value > root.data:
+        root.right = insert(root.right, value)
+
+    // Trả về node gốc (sau khi đã chèn giá trị mới)
+    RETURN root
+- Hàm delete:
+FUNCTION delete(Node root, int value):
+    // Nếu cây rỗng, không có gì để xóa
+    IF root IS NULL:
+        RETURN root
+
+    // Nếu giá trị nhỏ hơn node hiện tại, tìm và xóa trong cây con bên trái
+    IF value < root.data:
+        root.left = delete(root.left, value)
+
+    // Nếu giá trị lớn hơn node hiện tại, tìm và xóa trong cây con bên phải
+    ELSE IF value > root.data:
+        root.right = delete(root.right, value)
+
+    // Nếu tìm thấy node cần xóa
+    ELSE:
+        // Trường hợp node có 0 hoặc 1 con
+        IF root.left IS NULL:
+            RETURN root.right  // Trả về con phải (có thể là NULL)
+        ELSE IF root.right IS NULL:
+            RETURN root.left   // Trả về con trái (có thể là NULL)
+
+        // Trường hợp node có 2 con
+        // Tìm phần tử nhỏ nhất của cây con phải (Successor)
+        Node temp = findMin(root.right)
+
+        // Thay giá trị node hiện tại bằng giá trị của Successor
+        root.data = temp.data
+
+        // Xóa Successor khỏi cây con phải
+        root.right = delete(root.right, temp.data)
+
+    // Trả về node gốc (sau khi đã xóa xong)
+    RETURN root
+
+
