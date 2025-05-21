@@ -1,1 +1,9 @@
+Giải thích biểu thức:
+(very )+ → phải có ít nhất một từ "very " đứng trước.
+(fat )? → có thể có hoặc không từ "fat " sau "very".
+(tall|ugly) → bắt buộc phải có "tall" hoặc "ugly".
+" man" → phải kết thúc bằng " man".
 
+Biểu thức chính quy /(very )+(fat)?(tall|ugly) man/ khớp với:
+3. very very fat ugly man
+4. very very very tall man
